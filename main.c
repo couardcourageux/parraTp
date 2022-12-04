@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
 
     
 
-    int elapsed_time = -MPI_Wtime();
+    double elapsed_time = -MPI_Wtime();
     MPI_Comm_rank(MPI_COMM_WORLD, &id);
     MPI_Comm_size(MPI_COMM_WORLD, &p);
 
@@ -126,7 +126,7 @@ int main(int argc, char* argv[]) {
 
     if (count) {
         twinCount = 0;
-        int premiers[count];
+        int* premiers = malloc(sizeof(int) * count);
         
         premierIndice = 0;
         for (i = 0; i < size; i++) {
